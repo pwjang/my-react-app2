@@ -1,40 +1,40 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState, useEffect } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "./assets/vite.svg";
+import heroImg from "./assets/hero.png";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme')
-    if (saved) return saved === 'dark'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
-  const [isRotating, setIsRotating] = useState(false)
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved === "dark";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+  const [isRotating, setIsRotating] = useState(false);
 
   useEffect(() => {
-    const theme = isDark ? 'dark' : 'light'
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [isDark])
+    const theme = isDark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [isDark]);
 
-  const toggleTheme = () => setIsDark(!isDark)
+  const toggleTheme = () => setIsDark(!isDark);
 
   const handleRotate = () => {
-    if (isRotating) return
-    setIsRotating(true)
-  }
+    if (isRotating) return;
+    setIsRotating(true);
+  };
 
   return (
     <>
       <button
         className="theme-toggle"
         onClick={toggleTheme}
-        title={isDark ? 'Light mode' : 'Dark mode'}
-        aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+        title={isDark ? "Light mode" : "Dark mode"}
+        aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       >
-        {isDark ? '☀️' : '🌙'}
+        {isDark ? "☀️" : "🌙"}
       </button>
       <button
         className="rotate-button"
@@ -47,7 +47,7 @@ function App() {
       </button>
       <section id="center">
         <div
-          className={`orbit ${isRotating ? 'rotating' : ''}`}
+          className={`orbit ${isRotating ? "rotating" : ""}`}
           onAnimationEnd={() => setIsRotating(false)}
         >
           <div className="hero">
@@ -163,7 +163,7 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
